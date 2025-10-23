@@ -3,66 +3,193 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Talam Lumajang | Manis Gurih Tradisi Lumajang</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Talam Lumajang | Kue Talam Manis dan Gurih Khas Lumajang</title>
+  
+  <!-- SEO -->
+  <meta name="description" content="Talam Lumajang menjual kue talam manis, gurih, dan gula merah khas Lumajang dengan cita rasa lembut dan autentik. Bisa pesan lewat WhatsApp.">
+  <meta name="keywords" content="kue talam, talam lumajang, kue tradisional, kue basah, jajanan pasar, kue manis gurih">
+  <meta name="author" content="Talam Lumajang">
+  <link rel="icon" href="kue-talam-gula-merah.jpg" type="image/jpg">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Talam Lumajang | Kue Talam Manis & Gurih Khas Lumajang">
+  <meta property="og:description" content="Nikmati kue talam manis dan gurih buatan rumahan khas Lumajang. Lembut, manis, gurih dalam satu gigitan!">
+  <meta property="og:image" content="https://mf6000948-art.github.io/kue-talam/kue-talam-gula-merah.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mf6000948-art.github.io/kue-talam/">
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "LocalBusiness",
+    "name": "Talam Lumajang",
+    "image": "https://mf6000948-art.github.io/kue-talam/kue-talam-gula-merah.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lumajang",
+      "addressRegion": "Jawa Timur",
+      "addressCountry": "ID"
+    },
+    "telephone": "+6282297064590",
+    "priceRange": "IDR",
+    "url": "https://mf6000948-art.github.io/kue-talam/"
+  }
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fdfaf6;
+      color: #3e2c22;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: linear-gradient(135deg, #b68b6e, #e3c9a8);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.8em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.1em;
+      font-style: italic;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 50px 20px;
+      gap: 30px;
+    }
+
+    .card {
+      background-color: #fff8f0;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 300px;
+      text-align: center;
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      margin: 15px 0 5px;
+      font-size: 1.4em;
+      color: #6b4226;
+    }
+
+    .card p {
+      margin: 0 15px 10px;
+      font-size: 0.95em;
+      color: #5a4539;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #8b5e3c;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #b68b6e;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 25px;
+      text-decoration: none;
+      margin-bottom: 15px;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #8e6c4f;
+    }
+
+    footer {
+      background-color: #b68b6e;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      font-size: 0.9em;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 2em; }
+      .card { width: 90%; }
+    }
+  </style>
 </head>
 <body>
+
   <header>
-    <h1>🍮 Talam Lumajang</h1>
-    <p>Manis Gurih Tradisi Lumajang</p>
+    <h1>Talam Lumajang</h1>
+    <p>Kue talam manis dan gurih khas Lumajang 🍮</p>
   </header>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#menu">Menu</a>
-    <a href="#about">Tentang</a>
-    <a href="#contact">Kontak</a>
-  </nav>
-
-  <section id="home">
-    <h2>Selamat Datang di Talam Lumajang</h2>
-    <p>Nikmati cita rasa tradisional khas Lumajang yang manis dan gurih dalam setiap gigitan kue talam kami.</p>
-  </section>
-
-  <section id="menu">
-    <h2>Menu Kue Talam Kami</h2>
-    <div class="produk">
-      <div class="produk-item">
-        <img src="kue-talam-gula-merah.jpg" alt="Kue Talam Gula Merah">
-        <h3>Kue Talam Gula Merah</h3>
-        <p>Manis legit berpadu aroma khas gula merah — favorit sepanjang masa.</p>
-      </div>
-      <div class="produk-item">
-        <img src="kue-talam-gurih.jpg" alt="Kue Talam Gurih">
-        <h3>Kue Talam Gurih</h3>
-        <p>Rasa gurih lembut dengan sentuhan santan, bikin nagih di lidah.</p>
-      </div>
-      <div class="produk-item">
-        <img src="kue-talam-manis.jpg" alt="Kue Talam Manis">
-        <h3>Kue Talam Manis</h3>
-        <p>Kue talam klasik dengan cita rasa manis lembut khas tradisional.</p>
-      </div>
+  <section class="container">
+    <div class="card">
+      <img src="kue-talam-gula-merah.jpg" alt="Kue Talam Gula Merah">
+      <h3>Kue Talam Gula Merah</h3>
+      <p>Lembut dengan rasa manis gurih dari gula merah asli.</p>
+      <p class="price">Harga: Rp -</p>
+      <a href="https://wa.me/6282297064590?text=Halo%20saya%20ingin%20pesan%20Kue%20Talam%20Gula%20Merah" class="btn">Pesan Sekarang</a>
     </div>
-  </section>
 
-  <section id="about">
-    <h2>Tentang Kami</h2>
-    <p><b>Talam Lumajang</b> adalah UMKM lokal dari Lumajang, Jawa Timur, yang menghadirkan kelezatan kue tradisional dengan bahan alami pilihan.</p>
-    <p>Kami menjaga cita rasa asli, menghadirkan kue talam yang manis dan gurih untuk menemani momen hangat keluarga Anda.</p>
-  </section>
+    <div class="card">
+      <img src="kue-talam-gurih.jpg" alt="Kue Talam Gurih">
+      <h3>Kue Talam Gurih</h3>
+      <p>Cita rasa gurih lembut khas kue tradisional Lumajang.</p>
+      <p class="price">Harga: Rp -</p>
+      <a href="https://wa.me/6282297064590?text=Halo%20saya%20ingin%20pesan%20Kue%20Talam%20Gurih" class="btn">Pesan Sekarang</a>
+    </div>
 
-  <section id="contact">
-    <h2>Kontak Kami</h2>
-    <p>Hubungi kami untuk pemesanan dan kerja sama:</p>
-    <div class="contact-info">
-      📞 WhatsApp: <a href="https://wa.me/6282297064590" target="_blank">082297064590</a><br>
-      📍 Lokasi: Lumajang, Jawa Timur<br>
-      📸 Instagram: <em>(menyusul)</em>
+    <div class="card">
+      <img src="kue-talam-ungu.jpg" alt="Kue Talam Ubi Ungu">
+      <h3>Kue Talam Ubi Ungu</h3>
+      <p>Manis alami dari ubi ungu dengan tekstur lembut dan cantik.</p>
+      <p class="price">Harga: Rp -</p>
+      <a href="https://wa.me/6282297064590?text=Halo%20saya%20ingin%20pesan%20Kue%20Talam%20Ubi%20Ungu" class="btn">Pesan Sekarang</a>
     </div>
   </section>
 
   <footer>
-    © 2025 Talam Lumajang — Dibuat dengan ❤️ di Lumajang, Jawa Timur
+    <p>📍 Lumajang, Jawa Timur | 📞 082297064590</p>
+    <p>Instagram: <a href="#" target="_blank">@talamlumajang</a> (menyusul)</p>
+    <p>© 2025 Talam Lumajang. Dibuat dengan ❤️ di Lumajang.</p>
   </footer>
+
 </body>
 </html>
