@@ -30,13 +30,103 @@
     "addressRegion": "Jawa Timur",
     "addressCountry": "ID"
   },
-  "telephone":"‪+6282297064590‬",
+  "telephone": "+6282297064590",
   "priceRange": "IDR"
 }
 </script>
 
 <style>
-/* ==== STYLING SEMUA SAMA DENGAN YANG KAMU PUNYA ==== */
+:root{
+  --bg:#fdf8f5; --accent:#b08968; --accent-dark:#8e6c54;
+  --muted:#7a5a46; --card:#fff8f1; --purple:#7b4b8a;
+  --price:#8b5e3c; --green:#25D366;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;font-family:Inter, "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:linear-gradient(180deg,var(--bg),#fff);color:var(--muted);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+}
+
+/* NAV */
+.topbar{position:sticky;top:0;z-index:40;background:rgba(255,255,255,0.95);
+  backdrop-filter: blur(4px);box-shadow:0 1px 0 rgba(0,0,0,0.06);}
+.nav{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 18px;}
+.brand{display:flex;align-items:center;gap:12px;}
+.logo{
+  width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#e7c79a);
+  display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:18px;box-shadow:0 3px 8px rgba(0,0,0,0.08)
+}
+.brand h1{font-size:18px;margin:0;color:var(--accent-dark);}
+.menu{display:flex;gap:18px;align-items:center;}
+.menu a{color:var(--muted);text-decoration:none;font-weight:600;}
+.menu a:hover{color:var(--accent-dark);}
+.cta-wa{background:var(--green);color:#fff;padding:8px 12px;border-radius:999px;text-decoration:none;font-weight:700;display:flex;gap:8px;align-items:center;box-shadow:0 6px 18px rgba(37,211,102,0.14);}
+
+/* HERO */
+.hero{max-width:1100px;margin:26px auto;padding:30px 18px;display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:center}
+.hero-left h2{margin:0;font-size:32px;color:var(--accent-dark)}
+.hero-left p{margin:12px 0 20px;color:#5c4638}
+.hero-actions{display:flex;gap:12px;align-items:center}
+.btn{background:var(--accent);color:white;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700}
+.btn-ghost{background:transparent;border:2px solid var(--accent);color:var(--accent);padding:8px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+
+/* Gallery / Product catalog */
+.catalog{max-width:1100px;margin:18px auto;padding:0 18px 40px}
+.catalog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.product{background:var(--card);border-radius:14px;padding:0;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.06);transition:transform .28s,box-shadow .28s}
+.product:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(0,0,0,0.10)}
+.product .img-wrap{position:relative;height:220px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#fdf3e6;}
+.product .img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transform-origin:center;transition:transform .8s cubic-bezier(.2,.9,.3,1)}
+.product:hover img{transform:scale(1.06) rotate(-1deg)}
+.product .info{padding:16px;text-align:left}
+.product h3{margin:0;color:var(--accent-dark);font-size:18px}
+.product p{margin:8px 0;color:#6b5244;font-size:0.95rem}
+.meta{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.price{color:var(--price);font-weight:800}
+.small{font-size:0.9rem;color:#856a5b}
+.product .actions{display:flex;gap:10px;margin-top:12px;align-items:center}
+.btn-buy{background:#ffb66b;color:#4a2b0f;padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:700}
+.btn-add{background:transparent;border:1px dashed #e0cdbd;padding:8px 12px;border-radius:10px;color:#7a5a46;cursor:pointer}
+.btn-buy:hover{opacity:.95}
+
+/* Floating WhatsApp (animated) */
+.floating-wa{position:fixed;right:18px;bottom:18px;z-index:60;display:flex;flex-direction:column;gap:12px;align-items:flex-end}
+.wa-btn{
+  background:linear-gradient(45deg,#25D366,#1ebe5d);color:#fff;padding:14px 16px;border-radius:999px;display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;box-shadow:0 14px 30px rgba(37,211,102,0.18);
+  transform-origin:center;animation:float 3s ease-in-out infinite;
+}
+@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+
+/* Cart sidebar */
+.cart-toggle{position:fixed;left:18px;bottom:18px;background:#ffffff;border-radius:999px;padding:10px 12px;box-shadow:0 6px 18px rgba(0,0,0,0.12);z-index:60}
+.cart-panel{position:fixed;right:0;top:0;height:100vh;width:360px;background:#fff;box-shadow:-12px 0 40px rgba(0,0,0,0.12);z-index:70;transform:translateX(100%);transition:transform .35s;display:flex;flex-direction:column}
+.cart-panel.open{transform:translateX(0)}
+.cart-header{padding:18px;border-bottom:1px solid #f0e6db;font-weight:800}
+.cart-body{padding:18px;flex:1;overflow:auto}
+.cart-item{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+.cart-item img{width:64px;height:64px;object-fit:cover;border-radius:8px}
+.cart-footer{padding:18px;border-top:1px solid #f0e6db}
+
+/* Checkout */
+.checkout-form{display:flex;flex-direction:column;gap:10px}
+.form-row input, .form-row textarea{width:100%;padding:10px;border:1px solid #e9ded0;border-radius:8px}
+.pay-methods{display:flex;gap:8px;flex-wrap:wrap}
+.pay-method{padding:8px 10px;border-radius:8px;border:1px solid #efe1d0;cursor:pointer}
+
+/* Testimoni */
+.testi-wrap{max-width:900px;margin:26px auto;padding:0 18px 40px}
+.testi-cards{display:flex;gap:12px;overflow:auto;padding:8px}
+.testi{min-width:260px;background:#fff8f1;padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+.testi p{margin:0;color:#5a4539}
+
+/* Footer */
+footer{background:var(--accent);color:white;padding:26px;text-align:center;margin-top:40px;border-top-left-radius:12px}
+footer a{color:#fff;text-decoration:underline}
+
+/* Responsive */
+@media (max-width:900px){ .hero{grid-template-columns:1fr} .nav .menu{display:none} .menu-mobile{display:block} .catalog{padding:0 12px} }
+@media (max-width:500px){ .cart-panel{width:100%} .product .img-wrap{height:180px} .product img{height:180px} }
 </style>
 </head>
 <body>
@@ -155,151 +245,104 @@
   </div>
 </div>
 
+<!-- FOOTER -->
+<footer>
+  &copy; 2025 Talam Lumajang • <a href="https://wa.me/6282297064590" target="_blank">Hubungi WA</a>
+</footer>
+
 <script>
-// ==== DATA PRODUK ====
+// Sample products
 const products = [
-  {id:1,title:'Talam Gula Merah',desc:'Manis & lembut',price:10000,img:'images/kue-talam-gula-merah.jpg'},
-  {id:2,title:'Talam Gurih',desc:'Rasa gurih, cocok cemilan',price:10000,img:'images/kue-talam-gurih.jpg'},
-  {id:3,title:'Talam Ubi Ungu',desc:'Manis & unik',price:10000,img:'images/kue-talam-ungu.jpg'}
+  {id:1,name:"Talam Gula Merah",desc:"Manis dan gurih khas Lumajang",price:10000,img:"images/kue-talam-gula-merah.jpg"},
+  {id:2,name:"Talam Gurih",desc:"Rasa gurih legit",price:10000,img:"images/kue-talam-gurih.jpg"},
+  {id:3,name:"Talam Ubi Ungu",desc:"Ubi ungu alami, manis legit",price:10000,img:"images/kue-talam-ungu.jpg"}
 ];
 
-// ==== DATA TESTIMONI ====
-const testimonials = [
-  {name:'Siti',msg:'Enak banget, pesanan cepat sampai!'},
-  {name:'Budi',msg:'Rasa talam autentik, recommended!'},
-  {name:'Rina',msg:'Box 5 nya pas untuk arisan.'}
+// Sample testimonials
+const testi = [
+  {name:"Ani",msg:"Enak banget! Lembut dan manis pas."},
+  {name:"Budi",msg:"Paket cepat sampai, rasanya mantap."},
+  {name:"Sari",msg:"Ubi ungunya legit dan cantik."}
 ];
 
-// ==== RENDER PRODUK ====
-const productsGrid = document.getElementById('productsGrid');
-let CART = [];
-function formatIDR(n){ return 'Rp '+n.toLocaleString('id-ID'); }
-
-function renderProducts(){
-  productsGrid.innerHTML = '';
-  products.forEach(p=>{
-    const el = document.createElement('div'); el.className='product';
-    el.innerHTML = `
-      <div class="img-wrap"><img src="${p.img}" alt="${p.title}" loading="lazy"></div>
-      <div class="info">
-        <h3>${p.title}</h3>
-        <p>${p.desc}</p>
-        <div class="meta">
-          <div class="price">${formatIDR(p.price)}</div>
-        </div>
-        <div class="actions">
-          <button class="btn-add" data-id="${p.id}">Tambah ke keranjang</button>
-        </div>
+// Render products
+const grid=document.getElementById("productsGrid");
+products.forEach(p=>{
+  const div=document.createElement("div");div.className="product";
+  div.innerHTML=`<div class="img-wrap"><img src="${p.img}" alt="${p.name}"></div>
+    <div class="info">
+      <h3>${p.name}</h3>
+      <p>${p.desc}</p>
+      <div class="meta">
+        <span class="price">Rp ${p.price.toLocaleString()}</span>
+        <span class="small">Box isi 5</span>
       </div>
-    `;
-    productsGrid.appendChild(el);
-  });
-}
-renderProducts();
-
-// ==== RENDER TESTIMONI ====
-const testiCards = document.getElementById('testiCards');
-testimonials.forEach(t=>{
-  const el = document.createElement('div'); el.className='testi';
-  el.innerHTML = `<p>"${t.msg}"</p><div style="margin-top:8px;font-weight:700;color:var(--accent-dark)">— ${t.name}</div>`;
-  testiCards.appendChild(el);
+      <div class="actions">
+        <button class="btn-add" onclick="addToCart(${p.id})">Tambah ke Keranjang</button>
+        <a class="btn-buy" href="https://wa.me/6282297064590?text=Halo%20Talam%20Lumajang%2C%20saya%20ingin%20pesan%20${encodeURIComponent(p.name)}" target="_blank">Beli via WA</a>
+      </div>
+    </div>`;
+  grid.appendChild(div);
 });
 
-// ==== CART LOGIC ====
-const cartToggle = document.getElementById('cartToggle');
-const cartPanel = document.getElementById('cartPanel');
-const closeCart = document.getElementById('closeCart');
-const cartBody = document.getElementById('cartBody');
-const cartCount = document.getElementById('cartCount');
-const cartTotal = document.getElementById('cartTotal');
-const toCheckout = document.getElementById('toCheckout');
-const checkoutModal = document.getElementById('checkoutModal');
-const closeCheckout = document.getElementById('closeCheckout');
-const checkoutForm = document.getElementById('checkoutForm');
-
-cartToggle.addEventListener('click',()=>cartPanel.classList.add('open'));
-closeCart.addEventListener('click',()=>cartPanel.classList.remove('open'));
-toCheckout.addEventListener('click',()=>{
-  checkoutModal.style.display='flex';
-  cartPanel.classList.remove('open');
+// Render testimonials
+const tgrid=document.getElementById("testiCards");
+testi.forEach(t=>{
+  const d=document.createElement("div");d.className="testi";
+  d.innerHTML=`<p>"${t.msg}"</p><p style="font-weight:700;margin-top:6px">${t.name}</p>`;
+  tgrid.appendChild(d);
 });
-closeCheckout.addEventListener('click',()=>checkoutModal.style.display='none');
+
+// Cart logic
+let cart=[];
+const cartToggle=document.getElementById("cartToggle");
+const cartPanel=document.getElementById("cartPanel");
+const cartBody=document.getElementById("cartBody");
+const cartCount=document.getElementById("cartCount");
+const cartTotal=document.getElementById("cartTotal");
+const toCheckout=document.getElementById("toCheckout");
+const checkoutModal=document.getElementById("checkoutModal");
+const closeCart=document.getElementById("closeCart");
+const closeCheckout=document.getElementById("closeCheckout");
 
 function updateCartUI(){
-  cartBody.innerHTML = '';
-  if(CART.length===0){ cartBody.innerHTML='<p style="color:#7a5a46">Keranjang kosong — pilih produk untuk mulai belanja.</p>'; }
-  let total = 0;
-  CART.forEach(item=>{
-    total += item.qty*item.price;
-    const div = document.createElement('div'); div.className='cart-item';
-    div.innerHTML = `<img src="${item.img}" alt="${item.title}"><div style="flex:1">
-      <strong>${item.title}</strong>
-      <div style="font-size:0.85rem">Rp ${item.price} x ${item.qty}</div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:4px">
-      <button class="btn-add" data-id="${item.id}" data-op="inc">+</button>
-      <button class="btn-add" data-id="${item.id}" data-op="dec">-</button>
-      <button class="btn-add" data-id="${item.id}" data-op="rm">x</button>
-    </div>`;
+  cartBody.innerHTML="";
+  if(cart.length===0){cartBody.innerHTML='<p style="color:#7a5a46">Keranjang kosong — pilih produk.</p>'}
+  cart.forEach(item=>{
+    const p=products.find(pr=>pr.id===item.id);
+    const div=document.createElement("div");div.className="cart-item";
+    div.innerHTML=`<img src="${p.img}" alt="${p.name}"><div><div>${p.name}</div><div>Rp ${p.price.toLocaleString()} x ${item.qty}</div></div>`;
     cartBody.appendChild(div);
   });
-  cartCount.textContent = CART.reduce((a,b)=>a+b.qty,0);
-  cartTotal.textContent = formatIDR(total);
-
-  cartBody.querySelectorAll('.btn-add').forEach(b=>{
-    b.addEventListener('click', (e)=>{
-      const op = b.getAttribute('data-op'), id = parseInt(b.getAttribute('data-id'));
-      if(op==='inc'){ addToCart(id,1); }
-      if(op==='dec'){ decreaseOne(id); }
-      if(op==='rm'){ CART = CART.filter(it=>it.id!==id); updateCartUI(); }
-    });
-  });
+  cartCount.textContent=cart.reduce((a,b)=>a+b.qty,0);
+  cartTotal.textContent="Rp "+cart.reduce((a,b)=>a+products.find(p=>p.id===b.id).price*b.qty,0).toLocaleString();
 }
 
-function addToCart(id,qty=1){
-  const prod = products.find(p=>p.id===id);
-  const exist = CART.find(c=>c.id===id);
-  if(exist){ exist.qty+=qty; } else { CART.push({...prod,qty}); }
+function addToCart(id){
+  const exist=cart.find(c=>c.id===id);
+  if(exist){exist.qty+=1}else{cart.push({id:id,qty:1})}
   updateCartUI();
-}
-function decreaseOne(id){
-  const exist = CART.find(c=>c.id===id);
-  if(exist){
-    exist.qty--; if(exist.qty<=0) CART=CART.filter(c=>c.id!==id);
-    updateCartUI();
-  }
+  cartPanel.classList.add("open");
 }
 
-// ADD TO CART BUTTONS
-document.querySelectorAll('.btn-add').forEach(b=>{
-  b.addEventListener('click',()=>{ addToCart(parseInt(b.getAttribute('data-id'))); });
-});
+cartToggle.addEventListener("click",()=>{cartPanel.classList.toggle("open")});
+closeCart.addEventListener("click",()=>{cartPanel.classList.remove("open")});
+toCheckout.addEventListener("click",()=>{checkoutModal.style.display="flex";cartPanel.classList.remove("open")});
+closeCheckout.addEventListener("click",()=>{checkoutModal.style.display="none"});
 
-// CHECKOUT FORM SUBMIT
-checkoutForm.addEventListener('submit',e=>{
+// Checkout form submit
+document.getElementById("checkoutForm").addEventListener("submit",e=>{
   e.preventDefault();
-  const name = document.getElementById('custName').value;
-  const phone = document.getElementById('custPhone').value;
-  const addr = document.getElementById('custAddress').value;
-  const method = checkoutForm.querySelector('input[name="payMethod"]:checked').value;
-  if(CART.length===0){ alert('Keranjang kosong!'); return; }
-  let msg = `Halo Talam Lumajang,
-Saya ingin pesan:\n`;
-  CART.forEach(c=> msg += `- ${c.title} x ${c.qty}\n`);
-  msg += `\nNama: ${name}\nWA: ${phone}\nAlamat: ${addr}\nMetode bayar: ${method}`;
-  const waURL = `https://wa.me/6282297064590?text=${encodeURIComponent(msg)}`;
-  window.open(waURL,'_blank');
-  CART=[]; updateCartUI(); checkoutModal.style.display='none';
-});
-
-// FALLBACK IMAGE
-window.addEventListener('load',()=>{
-  document.querySelectorAll('img').forEach(img=>{
-    img.onerror = ()=> img.src='images/placeholder.jpg';
-  });
+  const name=document.getElementById("custName").value;
+  const phone=document.getElementById("custPhone").value;
+  const address=document.getElementById("custAddress").value;
+  const method=document.querySelector('input[name="payMethod"]:checked').value;
+  const items=cart.map(c=>products.find(p=>p.id===c.id).name+" x "+c.qty).join("%0A");
+  const waMsg=`Halo Talam Lumajang,%0ASaya ${name} ingin memesan:%0A${items}%0AAlamat:%20${encodeURIComponent(address)}%0AMetode%20Pembayaran:%20${method}`;
+  window.open(`https://wa.me/6282297064590?text=${waMsg}`, "_blank");
+  checkoutModal.style.display="none";
 });
 </script>
 
 </body>
 </html>
-
