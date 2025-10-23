@@ -46,16 +46,18 @@ body {
   margin:0;
   font-family:Inter, "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   color:var(--muted);
+  
+  /* Multiple background */
   background:
-    linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
-    url('images/transparan.png') no-repeat center top,
+    linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), /* gradient agar teks terbaca */
+    url('images/transparan.png') no-repeat top left,
     url('images/kue-talam-gurih-transparan.png') no-repeat center center,
-    url('images/transparan2.png') no-repeat center bottom;
-  background-size: contain, contain, contain; /* atau cover sesuai kebutuhan */
+    url('images/transparan2.png') no-repeat bottom right;
+  
+  background-size: auto, 200px 200px, 250px 250px, 200px 200px; /* ukuran tiap gambar */
   background-attachment: fixed;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
 }
+
 
 
 /* NAV */
