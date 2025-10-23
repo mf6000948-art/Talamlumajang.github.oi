@@ -42,19 +42,21 @@
   --price:#8b5e3c; --green:#25D366;
 }
 *{box-sizing:border-box}
-body{
+body {
   margin:0;
-  font-family:Inter,"Poppins",system-ui,-apple-system,"Segoe UI",Roboto,Arial;
-  color: var(--muted);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  /* Background image semi-transparan */
-  background: 
+  font-family:Inter, "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color:var(--muted);
+  background:
     linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
-    url('images/bg-kue-talam-gula-merah.jpg') no-repeat center center fixed;
-  background-size: cover;
+    url('images/bg1.png') no-repeat center top,
+    url('images/bg2.png') no-repeat center center,
+    url('images/bg3.png') no-repeat center bottom;
+  background-size: contain, contain, contain; /* atau cover sesuai kebutuhan */
+  background-attachment: fixed;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
+
 
 /* NAV */
 .topbar{position:sticky;top:0;z-index:40;background:rgba(255,255,255,0.95);
@@ -79,20 +81,35 @@ body{
 .btn{background:var(--accent);color:white;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700}
 .btn-ghost{background:transparent;border:2px solid var(--accent);color:var(--accent);padding:8px 14px;border-radius:10px;text-decoration:none;font-weight:700}
 
-/* Catalog */
+/* Gallery / Product catalog */
 .catalog{max-width:1100px;margin:18px auto;padding:0 18px 40px}
 .catalog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
 .product{background:var(--card);border-radius:14px;padding:0;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.06);transition:transform .28s,box-shadow .28s}
-.product:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 18px 40px rgba(0,0,0,0.10)}
+.product:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(0,0,0,0.10)}
 .product .img-wrap{position:relative;height:220px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#fdf3e6;}
-.product .img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s}
-.product:hover img{transform:scale(1.08) rotate(-1deg)}
+.product .img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transform-origin:center;transition:transform .8s cubic-bezier(.2,.9,.3,1)}
+.product:hover img{transform:scale(1.06) rotate(-1deg)}
 .product .info{padding:16px;text-align:left}
 .product h3{margin:0;color:var(--accent-dark);font-size:18px}
-.product .meta{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.product p{margin:8px 0;color:#6b5244;font-size:0.95rem}
+.meta{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .price{color:var(--price);font-weight:800}
-.product .meta button{background:#ffb66b;color:#4a2b0f;padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:700;transition:all .3s;cursor:pointer}
-.product .meta button:hover{transform:scale(1.05)}
+.small{font-size:0.9rem;color:#856a5b}
+.product .actions{display:flex;gap:10px;margin-top:12px;align-items:center}
+.btn-buy{background:#ffb66b;color:#4a2b0f;padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:700}
+.btn-add{background:transparent;border:1px dashed #e0cdbd;padding:8px 12px;border-radius:10px;color:#7a5a46;cursor:pointer}
+.btn-buy:hover{opacity:.95}
+
+/* Testimoni */
+.testi-wrap{max-width:900px;margin:26px auto;padding:0 18px 40px}
+.testi-cards{display:flex;gap:12px;overflow:auto;padding:8px}
+.testi{min-width:260px;background:#fff8f1;padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+.testi p{margin:0;color:#5a4539}
+
+/* Footer */
+footer{background:var(--accent);color:white;padding:26px;text-align:center;margin-top:40px;border-top-left-radius:12px}
+footer a{color:#fff;text-decoration:underline}
+footer img{vertical-align:middle;}
 
 /* Floating WhatsApp */
 .floating-wa{position:fixed;right:18px;bottom:18px;z-index:60;display:flex;flex-direction:column;gap:12px;align-items:flex-end}
@@ -102,23 +119,8 @@ body{
 }
 @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
 
-/* Testimoni */
-.testi-wrap{max-width:900px;margin:26px auto;padding:0 18px 40px}
-.testi-cards{display:flex;gap:12px;overflow-x:auto;padding:8px;scroll-behavior:smooth}
-.testi{min-width:260px;background:#fff8f1;padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
-.testi p{margin:0;color:#5a4539}
-
-/* Scroll-top */
-#scrollTop{display:none;position:fixed;bottom:80px;right:18px;background:var(--accent);color:#fff;padding:12px;border-radius:50%;cursor:pointer;z-index:70;font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,0.15)}
-
-/* Footer */
-<a href="https://instagram.com/username_ig" target="_blank" title="Instagram">
-  <img src="images/ig-icon.png" alt="Instagram" style="width:28px;height:28px">
-</a>
-<a href="https://www.tiktok.com/@username_tiktok" target="_blank" title="TikTok">
-  <img src="images/tiktok-icon.png" alt="TikTok" style="width:28px;height:28px">
-</a>
-
+/* Scroll Top */
+#scrollTop{display:none;position:fixed;bottom:80px;right:18px;background:var(--accent-dark);color:white;padding:10px 12px;border-radius:50%;cursor:pointer;z-index:70;font-size:18px}
 
 /* Responsive */
 @media (max-width:900px){ .hero{grid-template-columns:1fr} .menu{display:none} .catalog{padding:0 12px} }
@@ -127,12 +129,14 @@ body{
 </head>
 <body>
 
-<!-- Top Nav -->
+<!-- TOP NAV -->
 <div class="topbar">
   <div class="nav">
     <div class="brand">
       <div class="logo">TL</div>
-      <div><h1 style="font-size:16px;margin:0">Talam Lumajang</h1></div>
+      <div>
+        <h1 style="font-size:16px;margin:0">Talam Lumajang</h1>
+      </div>
     </div>
     <div class="menu">
       <a href="#home">Home</a>
@@ -144,7 +148,7 @@ body{
   </div>
 </div>
 
-<!-- Hero -->
+<!-- HERO -->
 <section id="home" class="hero">
   <div class="hero-left">
     <h2>Talam Lumajang — Kue Talam Manis & Gurih</h2>
@@ -193,12 +197,10 @@ body{
 
 <!-- Floating WA -->
 <div class="floating-wa">
-  <a class="wa-btn" href="https://wa.me/6282297064590?text=Halo%20Talam%20Lumajang%2C%20saya%20ingin%20pesan" target="_blank">
-    Pesan via WA
-  </a>
+  <a class="wa-btn" href="https://wa.me/6282297064590?text=Halo%20Talam%20Lumajang%2C%20saya%20ingin%20pesan" target="_blank">Pesan via WA</a>
 </div>
 
-<!-- Scroll top -->
+<!-- Scroll Top -->
 <div id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
 
 <!-- Footer -->
@@ -206,13 +208,13 @@ body{
   <div style="margin-bottom:12px">&copy; 2025 Talam Lumajang</div>
   <div style="display:flex;justify-content:center;gap:18px;margin-bottom:6px">
     <a href="https://wa.me/6282297064590" target="_blank" title="WhatsApp">
-      <img src="images/wa-icon.png" alt="WhatsApp" style="width:28px;height:28px">
+      <img src="images/foto-wa".png alt="talam_lumajang" style="width:28px;height:28px">
     </a>
-    <a href="#" target="_blank" title="Instagram">
-      <img src="images/ig-icon.png" alt="Instagram" style="width:28px;height:28px;opacity:0.7;transition:opacity .3s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7">
+    <a href="https://instagram.com/talam_luamjang" target="_blank" title="Instagram">
+      <img src="images/foto-ig.png" alt="Instagram" style="width:28px;height:28px;opacity:0.7;transition:opacity .3s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7">
     </a>
-    <a href="#" target="_blank" title="TikTok">
-      <img src="images/tiktok-icon.png" alt="TikTok" style="width:28px;height:28px;opacity:0.7;transition:opacity .3s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7">
+    <a href="https://www.tiktok.com/@talam_lumajang" target="_blank" title="TikTok">
+      <img src="images/foto-tiktok.png" alt="TikTok" style="width:28px;height:28px;opacity:0.7;transition:opacity .3s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7">
     </a>
   </div>
   <div><a href="https://wa.me/6282297064590" target="_blank">WA / Hubungi</a></div>
@@ -225,32 +227,29 @@ const products = [
   {id:2,name:"Talam Gurih",price:10000,img:"images/kue-talam-gurih.jpg"},
   {id:3,name:"Talam Ubi Ungu",price:10000,img:"images/kue-talam-ungu.webp"}
 ];
+const productsGrid = document.getElementById("productsGrid");
+products.forEach(p=>{
+  const div=document.createElement("div");
+  div.className="product";
+  div.innerHTML=`<div class="img-wrap"><img src="${p.img}" alt="${p.name}"></div>
+  <div class="info">
+    <h3>${p.name}</h3>
+    <div class="meta">
+      <div class="price">Rp ${p.price.toLocaleString()}</div>
+      <div class="actions">
+        <a class="btn-buy" href="https://wa.me/6282297064590?text=Halo%20Talam%20Lumajang%2C%20saya%20ingin%20pesan%20${encodeURIComponent(p.name)}">Beli</a>
+      </div>
+    </div>
+  </div>`;
+  productsGrid.appendChild(div);
+});
+
+// Testimoni
 const testimonials = [
   {text:"Rasanya legit, anak-anak suka!","author":"Ibu Rini, Lumajang"},
   {text:"Box 5 pas buat arisan, mantap!","author":"Bapak Arif, Jember"},
   {text:"Cocok buat hantaran, kualitas oke.","author":"Sari, Malang"}
 ];
-
-// Render produk
-const productsGrid=document.getElementById("productsGrid");
-products.forEach(p=>{
-  const div=document.createElement("div");
-  div.className="product";
-  div.innerHTML=`<div class="img-wrap"><img src="${p.img}" alt="${p.name}"></div>
-    <div class="info">
-      <h3>${p.name}</h3>
-      <div class="meta">
-        <div class="price">Rp ${p.price.toLocaleString()}</div>
-        <div class="actions">
-          <button onclick="addToCart(${p.id})">Tambah</button>
-          <a class="btn-buy" href="https://wa.me/6282297064590?text=Halo%20Talam%20Lumajang%2C%20saya%20ingin%20pesan%20${encodeURIComponent(p.name)}" target="_blank">Beli</a>
-        </div>
-      </div>
-    </div>`;
-  productsGrid.appendChild(div);
-});
-
-// Render testimoni
 const testiCards=document.getElementById("testiCards");
 testimonials.forEach(t=>{
   const div=document.createElement("div");
@@ -259,20 +258,11 @@ testimonials.forEach(t=>{
   testiCards.appendChild(div);
 });
 
-// Scroll top button
+// Scroll Top button
 window.onscroll=function(){
-  const st=document.getElementById("scrollTop");
-  st.style.display=(document.documentElement.scrollTop>300)?"block":"none";
+  document.getElementById("scrollTop").style.display = (window.scrollY>300) ? "block":"none";
 };
-
-// Cart (sederhana)
-let cart=[];
-function addToCart(id){
-  const prod=products.find(p=>p.id===id);
-  const exist=cart.find(c=>c.id===id);
-  if(exist) exist.qty++; else cart.push({...prod,qty:1});
-  alert(`${prod.name} ditambahkan ke keranjang!`);
-}
 </script>
+
 </body>
 </html>
