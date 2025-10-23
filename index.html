@@ -52,7 +52,7 @@ body{
   /* Background image semi-transparan */
   background: 
     linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
-    url('images/bg-transparent.jpg') no-repeat center center fixed;
+    url('images/bg-kue-talam-gula-merah.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -112,12 +112,13 @@ body{
 #scrollTop{display:none;position:fixed;bottom:80px;right:18px;background:var(--accent);color:#fff;padding:12px;border-radius:50%;cursor:pointer;z-index:70;font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,0.15)}
 
 /* Footer */
-footer{
-  background:var(--accent);color:white;padding:26px;text-align:center;margin-top:40px;border-top-left-radius:12px;
-}
-footer a{color:#fff;text-decoration:underline;transition:opacity .3s;}
-footer a:hover{opacity:0.8;}
-footer img{vertical-align:middle;}
+<a href="https://instagram.com/username_ig" target="_blank" title="Instagram">
+  <img src="images/ig-icon.png" alt="Instagram" style="width:28px;height:28px">
+</a>
+<a href="https://www.tiktok.com/@username_tiktok" target="_blank" title="TikTok">
+  <img src="images/tiktok-icon.png" alt="TikTok" style="width:28px;height:28px">
+</a>
+
 
 /* Responsive */
 @media (max-width:900px){ .hero{grid-template-columns:1fr} .menu{display:none} .catalog{padding:0 12px} }
