@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Talam Lumajang | Kue Talam Manis dan Gurih Khas Lumajang</title>
-  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Talam Lumajang — Kue Talam Manis & Gurih</title>
+
   <!-- SEO -->
-  <meta name="description" content="Talam Lumajang menjual kue talam manis, gurih, dan gula merah khas Lumajang dengan cita rasa lembut dan autentik. Bisa pesan lewat WhatsApp.">
-  <meta name="keywords" content="kue talam, talam lumajang, kue tradisional, kue basah, jajanan pasar, kue manis gurih">
+  <meta name="description" content="Talam Lumajang — Kue talam manis & gurih khas Lumajang. Box isi 5 @ Rp 10.000. Pesan via WhatsApp.">
+  <meta name="keywords" content="kue talam, talam lumajang, kue tradisional, jajanan pasar, kue basah, kue talam ubi ungu">
   <meta name="author" content="Talam Lumajang">
-  <link rel="icon" href="kue-talam-gula-merah.jpg" type="image/jpg">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Talam Lumajang | Kue Talam Manis & Gurih Khas Lumajang">
-  <meta property="og:description" content="Nikmati kue talam manis dan gurih buatan rumahan khas Lumajang. Lembut, manis, gurih dalam satu gigitan!">
+  <meta property="og:title" content="Talam Lumajang — Kue Talam Manis & Gurih">
+  <meta property="og:description" content="Box isi 5 — Rp 10.000. Kue talam manis, gurih, gula merah & ubi ungu. Pesan via WhatsApp.">
   <meta property="og:image" content="https://mf6000948-art.github.io/kue-talam/kue-talam-gula-merah.jpg">
-  <meta property="og:type" content="website">
   <meta property="og:url" content="https://mf6000948-art.github.io/kue-talam/">
+  <meta property="og:type" content="website">
 
-  <!-- Schema -->
+  <!-- LocalBusiness schema (structured data) -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org/",
-    "@type": "LocalBusiness",
+    "@context": "https://schema.org",
+    "@type": "Bakery",
     "name": "Talam Lumajang",
-    "image": "https://mf6000948-art.github.io/kue-talam/kue-talam-gula-merah.jpg",
+    "image": [
+      "https://mf6000948-art.github.io/kue-talam/kue-talam-gula-merah.jpg"
+    ],
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Lumajang",
@@ -32,164 +33,452 @@
       "addressCountry": "ID"
     },
     "telephone": "+6282297064590",
-    "priceRange": "IDR",
-    "url": "https://mf6000948-art.github.io/kue-talam/"
+    "priceRange": "IDR"
   }
   </script>
 
+  <!-- Styles (internal untuk kemudahan) -->
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #fdfaf6;
-      color: #3e2c22;
-      scroll-behavior: smooth;
+    :root{
+      --bg:#fdf8f5; --accent:#b08968; --accent-dark:#8e6c54;
+      --muted:#7a5a46; --card:#fff8f1; --purple:#7b4b8a;
+      --price:#8b5e3c; --green:#25D366;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;font-family:Inter, "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:linear-gradient(180deg,var(--bg),#fff);color:var(--muted);
+      -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
     }
 
-    header {
-      background: linear-gradient(135deg, #b68b6e, #e3c9a8);
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
+    /* NAV */
+    .topbar{
+      position:sticky;top:0;z-index:40;background:rgba(255,255,255,0.95);
+      backdrop-filter: blur(4px);box-shadow:0 1px 0 rgba(0,0,0,0.06);
     }
+    .nav{
+      max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 18px;
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#e7c79a);
+      display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:18px;box-shadow:0 3px 8px rgba(0,0,0,0.08)
+    }
+    .brand h1{font-size:18px;margin:0;color:var(--accent-dark)}
+    .menu{display:flex;gap:18px;align-items:center}
+    .menu a{color:var(--muted);text-decoration:none;font-weight:600}
+    .menu a:hover{color:var(--accent-dark)}
+    .cta-wa{background:var(--green);color:#fff;padding:8px 12px;border-radius:999px;text-decoration:none;font-weight:700;display:flex;gap:8px;align-items:center;box-shadow:0 6px 18px rgba(37,211,102,0.14)}
+    
+    /* Hero */
+    .hero{max-width:1100px;margin:26px auto;padding:30px 18px;display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:center}
+    .hero-left h2{margin:0;font-size:32px;color:var(--accent-dark)}
+    .hero-left p{margin:12px 0 20px;color:#5c4638}
+    .hero-actions{display:flex;gap:12px;align-items:center}
+    .btn{background:var(--accent);color:white;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700}
+    .btn-ghost{background:transparent;border:2px solid var(--accent);color:var(--accent);padding:8px 14px;border-radius:10px;text-decoration:none;font-weight:700}
 
-    header h1 {
-      font-size: 2.8em;
-      margin-bottom: 10px;
-    }
+    /* Gallery / Product catalog */
+    .catalog{max-width:1100px;margin:18px auto;padding:0 18px 40px}
+    .catalog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+    .product{background:var(--card);border-radius:14px;padding:0;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.06);transition:transform .28s,box-shadow .28s}
+    .product:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(0,0,0,0.10)}
+    .product .img-wrap{position:relative;height:220px;overflow:hidden}
+    .product img{width:100%;height:100%;object-fit:cover;display:block;transform-origin:center;transition:transform .8s cubic-bezier(.2,.9,.3,1)}
+    .product:hover img{transform:scale(1.06) rotate(-1deg)}
+    .product .info{padding:16px;text-align:left}
+    .product h3{margin:0;color:var(--accent-dark);font-size:18px}
+    .product p{margin:8px 0;color:#6b5244;font-size:0.95rem}
+    .meta{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .price{color:var(--price);font-weight:800}
+    .small{font-size:0.9rem;color:#856a5b}
 
-    header p {
-      font-size: 1.1em;
-      font-style: italic;
-    }
+    .product .actions{display:flex;gap:10px;margin-top:12px;align-items:center}
+    .btn-buy{background:#ffb66b;color:#4a2b0f;padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:700}
+    .btn-add{background:transparent;border:1px dashed #e0cdbd;padding:8px 12px;border-radius:10px;color:#7a5a46;cursor:pointer}
+    .btn-buy:hover{opacity:.95}
 
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 50px 20px;
-      gap: 30px;
+    /* Floating WhatsApp (animated) */
+    .floating-wa{position:fixed;right:18px;bottom:18px;z-index:60;display:flex;flex-direction:column;gap:12px;align-items:flex-end}
+    .wa-btn{
+      background:linear-gradient(45deg,#25D366,#1ebe5d);color:#fff;padding:14px 16px;border-radius:999px;display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;box-shadow:0 14px 30px rgba(37,211,102,0.18);
+      transform-origin:center;animation:float 3s ease-in-out infinite;
     }
+    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
 
-    .card {
-      background-color: #fff8f0;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      width: 300px;
-      text-align: center;
-      overflow: hidden;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-    }
+    /* Cart sidebar */
+    .cart-toggle{position:fixed;left:18px;bottom:18px;background:#ffffff;border-radius:999px;padding:10px 12px;box-shadow:0 6px 18px rgba(0,0,0,0.12);z-index:60}
+    .cart-panel{position:fixed;right:0;top:0;height:100vh;width:360px;background:#fff;box-shadow:-12px 0 40px rgba(0,0,0,0.12);z-index:70;transform:translateX(100%);transition:transform .35s;display:flex;flex-direction:column}
+    .cart-panel.open{transform:translateX(0)}
+    .cart-header{padding:18px;border-bottom:1px solid #f0e6db;font-weight:800}
+    .cart-body{padding:18px;flex:1;overflow:auto}
+    .cart-item{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+    .cart-item img{width:64px;height:64px;object-fit:cover;border-radius:8px}
+    .cart-footer{padding:18px;border-top:1px solid #f0e6db}
 
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
+    /* Checkout */
+    .checkout-form{display:flex;flex-direction:column;gap:10px}
+    .form-row input, .form-row textarea{width:100%;padding:10px;border:1px solid #e9ded0;border-radius:8px}
+    .pay-methods{display:flex;gap:8px;flex-wrap:wrap}
+    .pay-method{padding:8px 10px;border-radius:8px;border:1px solid #efe1d0;cursor:pointer}
 
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-    }
+    /* Testimoni */
+    .testi-wrap{max-width:900px;margin:26px auto;padding:0 18px 40px}
+    .testi-cards{display:flex;gap:12px;overflow:auto;padding:8px}
+    .testi{min-width:260px;background:#fff8f1;padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+    .testi p{margin:0;color:#5a4539}
 
-    .card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-    }
+    /* Footer */
+    footer{background:var(--accent);color:white;padding:26px;text-align:center;margin-top:40px;border-top-left-radius:12px}
+    footer a{color:#fff;text-decoration:underline}
 
-    .card h3 {
-      margin: 15px 0 5px;
-      font-size: 1.4em;
-      color: #6b4226;
-    }
-
-    .card p {
-      margin: 0 15px 10px;
-      font-size: 0.95em;
-      color: #5a4539;
-    }
-
-    .price {
-      font-weight: bold;
-      color: #8b5e3c;
-      margin-bottom: 10px;
-    }
-
-    .btn {
-      display: inline-block;
-      background-color: #b68b6e;
-      color: white;
-      padding: 10px 18px;
-      border-radius: 25px;
-      text-decoration: none;
-      margin-bottom: 15px;
-      transition: background 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: #8e6c4f;
-    }
-
-    footer {
-      background-color: #b68b6e;
-      color: white;
-      text-align: center;
-      padding: 25px;
-      font-size: 0.9em;
-      margin-top: 40px;
-    }
-
-    footer a {
-      color: #fff;
-      text-decoration: underline;
-    }
-
-    @media (max-width: 600px) {
-      header h1 { font-size: 2em; }
-      .card { width: 90%; }
-    }
+    /* Responsive */
+    @media (max-width:900px){ .hero{grid-template-columns:1fr} .nav .menu{display:none} .menu-mobile{display:block} .catalog{padding:0 12px} }
+    @media (max-width:500px){ .cart-panel{width:100%} .product .img-wrap{height:180px} .product img{height:180px} }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Talam Lumajang</h1>
-    <p>Kue talam manis dan gurih khas Lumajang 🍮</p>
-  </header>
+  <!-- TOP NAV -->
+  <div class="topbar">
+    <div class="nav">
+      <div class="brand">
+        <div class="logo">TL</div>
+        <div>
+          <h1 style="font-size:16px;margin:0">Talam Lumajang</h1>
+          <div style="font-size:12px;color:#7a5a46">Manis Gurih Tradisi Lumajang</div>
+        </div>
+      </div>
 
-  <section class="container">
-    <div class="card">
-      <img src="kue-talam-gula-merah.jpg" alt="Kue Talam Gula Merah">
-      <h3>Kue Talam Gula Merah</h3>
-      <p>Lembut dengan rasa manis gurih dari gula merah asli.</p>
-      <p class="price">Harga: Rp -</p>
-      <a href="https://wa.me/6282297064590?text=Halo%20saya%20ingin%20pesan%20Kue%20Talam%20Gula%20Merah" class="btn">Pesan Sekarang</a>
+      <div class="menu">
+        <a href="#home">Home</a>
+        <a href="#catalog">Semua Produk</a>
+        <a href="#about">Tentang</a>
+        <a href="#contact">Hubungi</a>
+        <a class="cta-wa" id="ctaTop" href="https://wa.me/6282297064590" target="_blank">WA • Pesan</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section id="home" class="hero" aria-labelledby="hero-title">
+    <div class="hero-left">
+      <h2 id="hero-title">Talam Lumajang — Kue Talam Manis & Gurih</h2>
+      <p>Nikmati box isi 5 — <strong>Rp 10.000/box</strong>. Cocok untuk hantaran, arisan, atau snack keluarga.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#catalog">Lihat Produk</a>
+        <a class="btn-ghost" href="#about">Tentang Kami</a>
+      </div>
+      <div style="margin-top:18px;color:#6b5244;font-size:0.95rem">Gratis konsultasi via WhatsApp — klik tombol WA di kanan bawah.</div>
     </div>
 
-    <div class="card">
-      <img src="kue-talam-gurih.jpg" alt="Kue Talam Gurih">
-      <h3>Kue Talam Gurih</h3>
-      <p>Cita rasa gurih lembut khas kue tradisional Lumajang.</p>
-      <p class="price">Harga: Rp -</p>
-      <a href="https://wa.me/6282297064590?text=Halo%20saya%20ingin%20pesan%20Kue%20Talam%20Gurih" class="btn">Pesan Sekarang</a>
-    </div>
-
-    <div class="card">
-      <img src="kue-talam-ungu.jpg" alt="Kue Talam Ubi Ungu">
-      <h3>Kue Talam Ubi Ungu</h3>
-      <p>Manis alami dari ubi ungu dengan tekstur lembut dan cantik.</p>
-      <p class="price">Harga: Rp -</p>
-      <a href="https://wa.me/6282297064590?text=Halo%20saya%20ingin%20pesan%20Kue%20Talam%20Ubi%20Ungu" class="btn">Pesan Sekarang</a>
+    <div class="hero-right">
+      <!-- small gallery -->
+      <div style="display:flex;gap:10px;flex-direction:column">
+        <img src="kue-talam-gula-merah.jpg" alt="Talam Gula Merah" style="width:420px;height:260px;object-fit:cover;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.08)">
+        <div style="display:flex;gap:10px">
+          <img src="kue-talam-gurih.jpg" alt="Talam Gurih" style="width:204px;height:120px;object-fit:cover;border-radius:10px;box-shadow:0 6px 14px rgba(0,0,0,0.06)">
+          <img src="kue-talam-ungu.jpg" alt="Talam Ubi Ungu" style="width:204px;height:120px;object-fit:cover;border-radius:10px;box-shadow:0 6px 14px rgba(0,0,0,0.06)">
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- CATALOG / PRODUCTS -->
+  <section id="catalog" class="catalog" aria-label="Catalog Produk">
+    <h2 style="text-align:center;color:var(--accent-dark);margin-bottom:18px">Semua Produk</h2>
+    <div class="catalog-grid" id="productsGrid">
+      <!-- PRODUCT TEMPLATE (JS will render items here) -->
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="testi-wrap" aria-label="Testimoni pelanggan">
+    <h3 style="text-align:center;color:var(--accent-dark)">Testimoni Pelanggan</h3>
+    <div class="testi-cards" id="testiCards">
+      <!-- testimonials via JS -->
+    </div>
+  </section>
+
+  <!-- CONTACT & ABOUT -->
+  <section id="about" style="max-width:900px;margin:18px auto;padding:0 18px 40px;text-align:center">
+    <h3 style="color:var(--accent-dark)">Tentang Talam Lumajang</h3>
+    <p style="color:#6b5244">Talam Lumajang adalah UMKM rumahan dari Lumajang yang menjaga resep tradisional — bahan alami, tanpa pengawet, dibuat dengan hati. Kami menyediakan box isi 5 untuk kenyamanan pemesanan.</p>
+  </section>
+
+  <section id="contact" style="max-width:900px;margin:0 auto;padding:0 18px 60px;text-align:center">
+    <h3 style="color:var(--accent-dark)">Hubungi Kami</h3>
+    <p style="color:#6b5244">Pesan via WhatsApp atau isi data di halaman checkout.</p>
+    <p style="font-weight:700">WA: <a href="https://wa.me/6282297064590" target="_blank">0822-9706-4590</a></p>
+  </section>
+
+  <!-- Floating WhatsApp and Cart -->
+  <div class="floating-wa">
+    <a class="wa-btn" id="floatingWA" href="https://wa.me/6282297064590?text=Halo%20Talam%20Lumajang%2C%20saya%20ingin%20pesan" target="_blank" aria-label="Pesan via WhatsApp">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="transform:translateY(1px)"><path d="M17 7a5 5 0 0 0-10 0c0 .7.17 1.36.46 1.95L6 12l3.1-.47A5 5 0 1 0 17 7z" fill="#fff"/></svg>
+      Pesan via WA
+    </a>
+  </div>
+
+  <button class="cart-toggle" id="cartToggle" aria-label="Buka keranjang">🧺 Keranjang (<span id="cartCount">0</span>)</button>
+
+  <!-- Cart Panel -->
+  <aside class="cart-panel" id="cartPanel" aria-hidden="true">
+    <div class="cart-header">Keranjang Anda</div>
+    <div class="cart-body" id="cartBody">
+      <p style="color:#7a5a46">Keranjang kosong — pilih produk untuk mulai belanja.</p>
+    </div>
+    <div class="cart-footer">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <div><strong>Total</strong></div>
+        <div id="cartTotal" style="font-weight:800;color:var(--price)">Rp 0</div>
+      </div>
+      <button id="toCheckout" class="btn" style="width:100%;margin-bottom:8px">Lanjut ke Checkout</button>
+      <button id="closeCart" class="btn-ghost" style="width:100%">Tutup</button>
+    </div>
+  </aside>
+
+  <!-- Checkout Modal (simple page) -->
+  <div id="checkoutModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:90;align-items:center;justify-content:center">
+    <div style="background:#fff;padding:20px;border-radius:12px;max-width:600px;width:94%;box-shadow:0 18px 40px rgba(0,0,0,0.25);">
+      <h3 style="margin-top:0">Checkout — Isi data pemesan</h3>
+      <form id="checkoutForm" class="checkout-form">
+        <div class="form-row"><input type="text" id="custName" placeholder="Nama lengkap" required></div>
+        <div class="form-row"><input type="tel" id="custPhone" placeholder="Nomor WhatsApp (contoh: 082297064590)" required></div>
+        <div class="form-row"><textarea id="custAddress" placeholder="Alamat pengiriman / catatan" rows="3"></textarea></div>
+        <div class="form-row">
+          <div style="font-weight:700;margin-bottom:6px">Pilih metode pembayaran</div>
+          <div class="pay-methods">
+            <label class="pay-method"><input type="radio" name="pay" value="cod" checked> COD (Bayar di tempat)</label>
+            <label class="pay-method"><input type="radio" name="pay" value="transfer"> Transfer bank</label>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:8px">
+          <button type="submit" class="btn" style="flex:1">Konfirmasi Pesanan</button>
+          <button type="button" id="cancelCheckout" class="btn-ghost" style="flex:1">Batal</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
   <footer>
-    <p>📍 Lumajang, Jawa Timur | 📞 082297064590</p>
-    <p>Instagram: <a href="#" target="_blank">@talamlumajang</a> (menyusul)</p>
-    <p>© 2025 Talam Lumajang. Dibuat dengan ❤️ di Lumajang.</p>
+    <div style="max-width:1100px;margin:auto">
+      <div style="font-weight:800">Talam Lumajang</div>
+      <div style="margin:8px 0">Box isi 5 — Rp 10.000 / box</div>
+      <div>📍 Lumajang, Jawa Timur • 📞 <a href="https://wa.me/6282297064590" target="_blank" style="color:white">0822-9706-4590</a></div>
+      <div style="margin-top:8px"><a href="#" style="color:white">Instagram: @talamlumajang (menyusul)</a></div>
+      <div style="margin-top:10px;font-size:13px">© 2025 Talam Lumajang — Dibuat dengan ❤️ di Lumajang.</div>
+    </div>
   </footer>
 
+  <!-- SCRIPT: products, cart, checkout, testimonials -->
+  <script>
+  // --- DATA PRODUK (sesuaikan nama file gambar jika berbeda di repo)
+  const PRODUCTS = [
+    {
+      id: 'p1',
+      title: 'Kue Talam Gula Merah',
+      desc: 'Manis legit berpadu aroma khas gula merah — favorit sepanjang masa.',
+      img: 'kue-talam-gula-merah.jpg',
+      price: 10000, // per box isi 5
+      unit: 'box (isi 5)'
+    },
+    {
+      id: 'p2',
+      title: 'Kue Talam Gurih',
+      desc: 'Rasa gurih lembut dengan sentuhan santan, bikin nagih di lidah.',
+      img: 'kue-talam-gurih.jpg',
+      price: 10000,
+      unit: 'box (isi 5)'
+    },
+    {
+      id: 'p3',
+      title: 'Kue Talam Ubi Ungu',
+      desc: 'Warna ungu alami dari ubi ungu, tekstur lembut dan aroma alami.',
+      img: 'kue-talam-ungu.jpg',
+      price: 10000,
+      unit: 'box (isi 5)'
+    }
+  ];
+
+  // --- Dummy testimonials
+  const TESTIMONIALS = [
+    {name:'Siti', text:'Enak banget! Lembut dan tidak terlalu manis. Recomended.'},
+    {name:'Adi', text:'Pesanan cepat dikirim, rasa asli tradisional. Mantap!'},
+    {name:'Mira', text:'Boxnya rapi, cocok untuk hantaran keluarga.'}
+  ];
+
+  // --- Render products
+  const grid = document.getElementById('productsGrid');
+  PRODUCTS.forEach(p => {
+    const el = document.createElement('div'); el.className='product';
+    el.innerHTML = `
+      <div class="img-wrap"><img src="${p.img}" alt="${p.title}" loading="lazy"></div>
+      <div class="info">
+        <h3>${p.title}</h3>
+        <p>${p.desc}</p>
+        <div class="meta">
+          <div class="small">${p.unit}</div>
+          <div class="price">Rp ${formatMoney(p.price)}</div>
+        </div>
+        <div class="actions">
+          <a class="btn-buy" href="https://wa.me/6282297064590?text=Halo%20saya%20ingin%20pesan%20${encodeURIComponent(p.title)}%20(1%20box)" target="_blank">Beli via WA</a>
+          <button class="btn-add" data-id="${p.id}">Tambah ke Keranjang</button>
+        </div>
+      </div>
+    `;
+    grid.appendChild(el);
+  });
+
+  // --- Render testimonials
+  const testiWrap = document.getElementById('testiCards');
+  TESTIMONIALS.forEach(t=>{
+    const d=document.createElement('div');d.className='testi';
+    d.innerHTML = `<p>"${t.text}"</p><div style="margin-top:8px;font-weight:700;color:var(--accent-dark)">@${t.name}</div>`;
+    testiWrap.appendChild(d);
+  });
+
+  // --- Cart logic (simple, client-side)
+  let CART = [];
+  const cartToggle = document.getElementById('cartToggle');
+  const cartPanel = document.getElementById('cartPanel');
+  const cartBody = document.getElementById('cartBody');
+  const cartCount = document.getElementById('cartCount');
+  const cartTotal = document.getElementById('cartTotal');
+
+  document.querySelectorAll('.btn-add').forEach(btn=>{
+    btn.addEventListener('click',()=> {
+      const id = btn.getAttribute('data-id');
+      addToCart(id,1);
+    });
+  });
+
+  function addToCart(productId, qty=1){
+    const prod = PRODUCTS.find(p=>p.id===productId); if(!prod) return;
+    const found = CART.find(i=>i.id===productId);
+    if(found) found.qty += qty; else CART.push({id:productId, title:prod.title, price:prod.price, img:prod.img, qty});
+    updateCartUI();
+    openCart();
+  }
+
+  function updateCartUI(){
+    cartBody.innerHTML = '';
+    if(CART.length===0){
+      cartBody.innerHTML = '<p style="color:#7a5a46">Keranjang kosong — pilih produk untuk mulai belanja.</p>';
+    } else {
+      CART.forEach(item=>{
+        const row = document.createElement('div'); row.className='cart-item';
+        row.innerHTML = `
+          <img src="${item.img}" alt="${item.title}">
+          <div style="flex:1">
+            <div style="font-weight:700">${item.title}</div>
+            <div style="font-size:13px;color:#6b5244">Rp ${formatMoney(item.price)} • ${item.qty} box</div>
+            <div style="margin-top:6px;display:flex;gap:8px">
+              <button class="btn-add" data-op="dec" data-id="${item.id}">-</button>
+              <button class="btn-add" data-op="inc" data-id="${item.id}">+</button>
+              <button class="btn-add" data-op="rm" data-id="${item.id}">Hapus</button>
+            </div>
+          </div>
+        `;
+        cartBody.appendChild(row);
+      });
+    }
+    cartCount.innerText = CART.reduce((s,i)=>s+i.qty,0);
+    cartTotal.innerText = 'Rp ' + formatMoney(CART.reduce((s,i)=>s+i.price*i.qty,0));
+    
+    // attach cart buttons
+    cartBody.querySelectorAll('.btn-add').forEach(b=>{
+      b.addEventListener('click', (e)=>{
+        const op = b.getAttribute('data-op'), id = b.getAttribute('data-id');
+        if(op==='inc') { addToCart(id,1); CART = CART.map(it=> it.id===id?{...it, qty: it.qty}: it); reduceOneIfNeeded(); }
+        if(op==='dec') { decreaseOne(id); }
+        if(op==='rm') { CART = CART.filter(it=>it.id!==id); updateCartUI(); }
+      });
+    });
+  }
+
+  // helpers for cart
+  function decreaseOne(id){
+    const it = CART.find(x=>x.id===id); if(!it) return;
+    if(it.qty>1) it.qty--; else CART = CART.filter(x=>x.id!==id);
+    updateCartUI();
+  }
+  function reduceOneIfNeeded(){ CART = CART.filter(x=>x.qty>0); updateCartUI(); }
+
+  function openCart(){ cartPanel.classList.add('open'); cartPanel.setAttribute('aria-hidden','false'); }
+  function closeCart(){ cartPanel.classList.remove('open'); cartPanel.setAttribute('aria-hidden','true'); }
+
+  cartToggle.addEventListener('click', ()=> { openCart(); });
+  document.getElementById('closeCart').addEventListener('click', ()=> closeCart());
+
+  // Checkout
+  document.getElementById('toCheckout').addEventListener('click', ()=> {
+    if(CART.length===0){ alert('Keranjang kosong. Tambahkan produk dulu.'); return; }
+    document.getElementById('checkoutModal').style.display='flex';
+  });
+  document.getElementById('cancelCheckout').addEventListener('click', ()=> {
+    document.getElementById('checkoutModal').style.display='none';
+  });
+
+  document.getElementById('checkoutForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('custName').value.trim();
+    const phone = document.getElementById('custPhone').value.trim();
+    const addr = document.getElementById('custAddress').value.trim();
+    const pay = document.querySelector('input[name="pay"]:checked').value;
+    if(!name || !phone){ alert('Isi nama dan nomor WA.'); return; }
+
+    // build message for WA
+    let message = `Halo%20Talam%20Lumajang%2C%20saya%20ingin%20pesan%3A%0A`;
+    CART.forEach(it=>{
+      message += `- ${encodeURIComponent(it.title)}%20x%20${it.qty}%20box%20(%20Rp%20${formatMoney(it.price)}%20)%0A`;
+    });
+    const total = CART.reduce((s,i)=>s+i.price*i.qty,0);
+    message += `%0ATotal%3A%20Rp%20${formatMoney(total)}%0ANama%3A%20${encodeURIComponent(name)}%0AWA%3A%20${encodeURIComponent(phone)}%0AAlamat%3A%20${encodeURIComponent(addr)}%0AMetode%3A%20${encodeURIComponent(pay)}`;
+
+    // redirect to WA with prefilled message
+    const waUrl = `https://wa.me/6282297064590?text=${message}`;
+    window.open(waUrl,'_blank');
+
+    // optional: clear cart
+    CART = [];
+    updateCartUI();
+    closeCart();
+    document.getElementById('checkoutModal').style.display='none';
+    alert('Pesanan diteruskan ke WhatsApp. Silakan lanjutkan di aplikasi WhatsApp untuk mengirim pesanan.');
+  });
+
+  // small utilities
+  function formatMoney(n){ return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,'.'); }
+
+  // initial UI
+  updateCartUI();
+
+  // small accessibility: smooth scroll for hash links
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      const id = this.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
+
+  // make testimonial auto scroll (simple)
+  setInterval(()=> {
+    const wrap = document.querySelector('.testi-cards');
+    if(!wrap) return;
+    wrap.scrollBy({left:260,behavior:'smooth'});
+    if(wrap.scrollLeft + wrap.clientWidth >= wrap.scrollWidth) wrap.scrollTo({left:0,behavior:'smooth'});
+  },4000);
+
+  // ensure images exist: show console warning if missing
+  window.addEventListener('load', ()=>{
+    document.querySelectorAll('img').forEach(img=>{
+      img.onerror = ()=> console.warn('Image not found:', img.src);
+    });
+  });
+  </script>
 </body>
 </html>
