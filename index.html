@@ -42,23 +42,26 @@
   --price:#8b5e3c; --green:#25D366;
 }
 *{box-sizing:border-box}
-body {
 <script>
 const backgrounds = [
-  "images/kue-talam-gurih-transparan.png",
-  "images/transparan.png",
-  "images/transparan2.png"
+  'images/transparan.png',
+  'images/transparan2.png',
+  'images/kue-talam-gurih-transparan.png'
 ];
-let i = 0;
-setInterval(() => {
-  document.body.style.background = `
-    linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
-    url('${backgrounds[i]}') no-repeat center center fixed
-  `;
-  document.body.style.backgroundSize = "cover";
-  i = (i + 1) % backgrounds.length;
-}, 5000); // ganti setiap 5 detik
+
+let current = 0;
+function changeBackground(){
+  document.body.style.backgroundImage = `linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('${backgrounds[current]}')`;
+  current = (current + 1) % backgrounds.length;
+}
+
+// Ganti setiap 5 detik
+setInterval(changeBackground, 5000);
+
+// Set awal
+changeBackground();
 </script>
+
 
 
 
