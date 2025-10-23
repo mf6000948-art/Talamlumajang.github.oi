@@ -42,29 +42,6 @@
   --price:#8b5e3c; --green:#25D366;
 }
 *{box-sizing:border-box}
-<script>
-const backgrounds = [
-  'images/transparan.png',
-  'images/transparan2.png',
-  'images/kue-talam-gurih-transparan.png'
-];
-
-let current = 0;
-function changeBackground(){
-  document.body.style.backgroundImage = `linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('${backgrounds[current]}')`;
-  current = (current + 1) % backgrounds.length;
-}
-
-// Ganti setiap 5 detik
-setInterval(changeBackground, 5000);
-
-// Set awal
-changeBackground();
-</script>
-
-
-
-
 
 /* NAV */
 .topbar{position:sticky;top:0;z-index:40;background:rgba(255,255,255,0.95);
@@ -119,13 +96,10 @@ footer{background:var(--accent);color:white;padding:26px;text-align:center;margi
 footer a{color:#fff;text-decoration:underline}
 footer img{vertical-align:middle;}
 
-/* Floating WhatsApp */
-.floating-wa{position:fixed;right:18px;bottom:18px;z-index:60;display:flex;flex-direction:column;gap:12px;align-items:flex-end}
-.wa-btn{
-  background:linear-gradient(45deg,#25D366,#1ebe5d);color:#fff;padding:14px 16px;border-radius:999px;display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;box-shadow:0 14px 30px rgba(37,211,102,0.18);
-  transform-origin:center;animation:float 3s ease-in-out infinite;
-}
-@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+/* Floating Socials */
+.floating-social{position:fixed;right:18px;bottom:18px;z-index:60;display:flex;flex-direction:column;gap:12px;align-items:flex-end}
+.floating-social a img{width:48px;height:48px;transition:transform .3s}
+.floating-social a:hover img{transform:scale(1.1)}
 
 /* Scroll Top */
 #scrollTop{display:none;position:fixed;bottom:80px;right:18px;background:var(--accent-dark);color:white;padding:10px 12px;border-radius:50%;cursor:pointer;z-index:70;font-size:18px}
@@ -203,9 +177,17 @@ footer img{vertical-align:middle;}
   <p style="font-weight:700">WA: <a href="https://wa.me/6282297064590" target="_blank">0822-9706-4590</a></p>
 </section>
 
-<!-- Floating WA -->
-<div class="floating-wa">
-  <a class="wa-btn" href="https://wa.me/6282297064590?text=Halo%20Talam%20Lumajang%2C%20saya%20ingin%20pesan" target="_blank">Pesan via WA</a>
+<!-- Floating Socials -->
+<div class="floating-social">
+  <a href="https://wa.me/6282297064590?text=Halo%20Talam%20Lumajang%2C%20saya%20ingin%20pesan" target="_blank" title="WhatsApp">
+    <img src="images/foto-wa.png" alt="WhatsApp">
+  </a>
+  <a href="https://www.instagram.com/talam_lumajang" target="_blank" title="Instagram">
+    <img src="images/foto-ig.png" alt="Instagram">
+  </a>
+  <a href="https://www.tiktok.com/@talam_lumajang" target="_blank" title="TikTok">
+    <img src="images/foto-tiktok.png" alt="TikTok">
+  </a>
 </div>
 
 <!-- Scroll Top -->
@@ -216,10 +198,10 @@ footer img{vertical-align:middle;}
   <div style="margin-bottom:12px">&copy; 2025 Talam Lumajang</div>
   <div style="display:flex;justify-content:center;gap:18px;margin-bottom:6px">
     <a href="https://wa.me/6282297064590" target="_blank" title="WhatsApp">
-      <img src="images/foto-wa".png alt="talam_lumajang" style="width:28px;height:28px">
+      <img src="images/foto-wa.png" alt="WhatsApp" style="width:28px;height:28px">
     </a>
-    <a href="https://instagram.com/talam_luamjang" target="_blank" title="Instagram">
-      <img src="images/foto-ig.png" alt="Instagram" style="width:28px;height:28px;opacity:0.7;transition:opacity .3s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7">
+    <a href="https://instagram.com/talam_lumajang" target="_blank" title="Instagram">
+      <img src="images/fptp-ig.png" alt="Instagram" style="width:28px;height:28px;opacity:0.7;transition:opacity .3s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7">
     </a>
     <a href="https://www.tiktok.com/@talam_lumajang" target="_blank" title="TikTok">
       <img src="images/foto-tiktok.png" alt="TikTok" style="width:28px;height:28px;opacity:0.7;transition:opacity .3s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7">
@@ -229,6 +211,20 @@ footer img{vertical-align:middle;}
 </footer>
 
 <script>
+// Background ganti-ganti
+const backgrounds = [
+  'images/transparan.png',
+  'images/transparan2.png',
+  'images/kue-talam-gurih-transparan.png'
+];
+let currentBg = 0;
+function changeBackground(){
+  document.body.style.backgroundImage = `linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('${backgrounds[currentBg]}')`;
+  currentBg = (currentBg + 1) % backgrounds.length;
+}
+setInterval(changeBackground,5000);
+changeBackground();
+
 // Produk
 const products = [
   {id:1,name:"Talam Gula Merah",price:10000,img:"images/kue-talam-gula-merah.jpg"},
