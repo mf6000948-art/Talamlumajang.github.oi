@@ -1,50 +1,206 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Talam Lumajang | Kue Tradisional Manis & Gurih</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talam Lumajang</title>
 
+  <style>
+    /* --- Warna dan Font Dasar --- */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: linear-gradient(180deg, #fffaf5 0%, #fff3e0 100%);
+      color: #4b2e05;
+      overflow-x: hidden;
+    }
+
+    /* --- Header --- */
+    header {
+      text-align: center;
+      background: linear-gradient(135deg, #a65e2e, #d7a46c);
+      color: white;
+      padding: 80px 20px 100px;
+      animation: fadeIn 1.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: white;
+      border-radius: 50% 50% 0 0;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+      letter-spacing: 1.5px;
+      animation: slideIn 1s ease;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.2em;
+      font-weight: 300;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    /* --- Bagian Deskripsi --- */
+    section {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    section h2 {
+      color: #a65e2e;
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+
+    section p {
+      max-width: 650px;
+      margin: 0 auto;
+      line-height: 1.7;
+      font-size: 1.05em;
+    }
+
+    /* --- Galeri Otomatis (Carousel) --- */
+    .gallery {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+      margin: 40px 0;
+      position: relative;
+    }
+
+    .gallery-track {
+      display: flex;
+      animation: slide 15s infinite linear;
+    }
+
+    .gallery img {
+      width: 300px;
+      height: 230px;
+      margin: 0 15px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* --- Tombol WhatsApp --- */
+    .whatsapp-btn {
+      display: inline-block;
+      background: #25D366;
+      color: white;
+      padding: 14px 35px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1em;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+    }
+
+    .whatsapp-btn:hover {
+      background: #1EBE57;
+      transform: translateY(-4px);
+      box-shadow: 0 6px 14px rgba(37, 211, 102, 0.5);
+    }
+
+    /* --- Footer --- */
+    footer {
+      text-align: center;
+      padding: 25px;
+      background-color: #f6e4d2;
+      color: #5a3a1b;
+      font-size: 0.95em;
+      border-top: 2px solid #e2c2a2;
+    }
+
+    /* --- Animasi --- */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- Responsif --- */
+    @media (max-width: 600px) {
+      header h1 { font-size: 2.2em; }
+      .gallery img { width: 220px; height: 180px; }
+      .whatsapp-btn { font-size: 1em; padding: 12px 25px; }
+    }
+  </style>
+</head>
 <body>
+
   <header>
     <h1>Talam Lumajang</h1>
-    <p>Manis, Gurih, dan Penuh Cita Rasa Tradisional</p>
+    <p>Manis • Gurih • Lembut — Cita rasa tradisional yang tak tergantikan 🍮</p>
   </header>
 
-  <section id="produk">
-    <h2>Produk Kami</h2>
-    <div class="produk-container">
+  <section>
+    <h2>Tentang Kami</h2>
+    <p>
+      <b>Talam Lumajang</b> dibuat dengan resep turun-temurun khas Lumajang.  
+      Setiap potongan kue menghadirkan rasa manis dan gurih yang berpadu lembut.  
+      Kami menjaga kualitas dan rasa dengan bahan alami tanpa pengawet.
+    </p>
+  </section>
 
-      <div class="produk">
+  <section>
+    <h2>Galeri Produk</h2>
+    <div class="gallery">
+      <div class="gallery-track">
+        <img src="kue talam gurih.jpg" alt="Kue Talam Gurih">
         <img src="kue-talam-gula-merah.jpg" alt="Kue Talam Gula Merah">
-        <h3>Kue Talam Gula Merah</h3>
-        <p>Rasa manis legit dengan aroma khas gula merah.</p>
-        <a href="https://wa.me/6282297064590" class="btn-wa">Pesan via WhatsApp</a>
+        <img src="kue talam ungu.webp" alt="Kue Talam Ubi Ungu">
+        <img src="kue talam gurih.jpg" alt="Kue Talam Gurih">
+        <img src="kue-talam-gula-merah.jpg" alt="Kue Talam Gula Merah">
       </div>
-
-      <div class="produk">
-        <img src="kue-talam-gurih.jpg" alt="Kue Talam Gurih">
-        <h3>Kue Talam Gurih</h3>
-        <p>Perpaduan santan lembut dan rasa gurih khas tradisional.</p>
-        <a href="https://wa.me/6282297064590" class="btn-wa">Pesan via WhatsApp</a>
-      </div>
-
-      <div class="produk">
-        <img src="kue-talam-ubi-ungu.jpg" alt="Kue Talam Ubi Ungu">
-        <h3>Kue Talam Ubi Ungu</h3>
-        <p>Tekstur lembut dan warna ungu alami yang menggugah selera.</p>
-        <a href="https://wa.me/6282297064590" class="btn-wa">Pesan via WhatsApp</a>
-      </div>
-
     </div>
   </section>
 
+  <section>
+    <h2>Pemesanan</h2>
+    <p>Harga menyusul — tapi kamu bisa pesan langsung lewat WhatsApp 👇</p>
+    <a class="whatsapp-btn" href="https://wa.me/6282297064590" target="_blank">
+      Pesan Sekarang
+    </a>
+  </section>
+
   <footer>
-    <p>📍 Lumajang, Jawa Timur | Kontak: 0822-9706-4590</p>
-    <p>Instagram: <a href="#">@talamlumajang</a> (segera hadir)</p>
-    <p>© 2025 Talam Lumajang. Semua hak dilindungi.</p>
+    © 2025 Talam Lumajang • Dibuat dengan ❤️ di Lumajang, Jawa Timur  
+    <br><small>Instagram: <i>segera hadir</i></small>
   </footer>
+
 </body>
 </html>
