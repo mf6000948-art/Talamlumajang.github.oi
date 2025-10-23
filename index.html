@@ -43,20 +43,23 @@
 }
 *{box-sizing:border-box}
 body {
-  margin:0;
-  font-family:Inter, "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  color:var(--muted);
-  
-  /* Multiple background */
-  background:
-    linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), /* gradient agar teks terbaca */
-    url('images/transparan.png') no-repeat top left,
-    url('images/kue-talam-gurih-transparan.png') no-repeat center center,
-    url('images/transparan2.png') no-repeat bottom right;
-  
-  background-size: auto, 200px 200px, 250px 250px, 200px 200px; /* ukuran tiap gambar */
-  background-attachment: fixed;
-}
+<script>
+const backgrounds = [
+  "images/kue-talam-gurih-transparan.png",
+  "images/transparan.png",
+  "images/transparan2.png"
+];
+let i = 0;
+setInterval(() => {
+  document.body.style.background = `
+    linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+    url('${backgrounds[i]}') no-repeat center center fixed
+  `;
+  document.body.style.backgroundSize = "cover";
+  i = (i + 1) % backgrounds.length;
+}, 5000); // ganti setiap 5 detik
+</script>
+
 
 
 
